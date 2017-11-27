@@ -1,4 +1,4 @@
-package jpa.dao;
+package service;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import model.Destinatario;
 
 @Service
+
 public class DestinatarioJpaDao {
 	
 	private static DestinatarioJpaDao instance;

@@ -1,4 +1,4 @@
-package jpa.dao;
+package service;
 
 import java.util.List;
 
@@ -8,23 +8,24 @@ import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Service;
 
-import model.Produto;
+import model.Entrega;
+
 
 @Service
-public class ProdutoJpaDao {
+public class EntregaJpaDao {
 	
-	private static ProdutoJpaDao instance;
+	private static EntregaJpaDao instance;
     protected EntityManager entityManager;
     
-    public static ProdutoJpaDao getInstance(){
+    public static EntregaJpaDao getInstance(){
               if (instance == null){
-                       instance = new ProdutoJpaDao();
+                       instance = new EntregaJpaDao();
               }
               
               return instance;
     }
 
-    private ProdutoJpaDao() {
+    private EntregaJpaDao() {
               entityManager = getEntityManager();
     }
 
@@ -37,19 +38,19 @@ public class ProdutoJpaDao {
               return entityManager;
     }
 
-    public Produto getById(final int id) {
-              return entityManager.find(Produto.class, id);
+    public Entrega getById(final int id) {
+              return entityManager.find(Entrega.class, id);
     }
 
     @SuppressWarnings("unchecked")
-    public List<Produto> findAll() {
-              return entityManager.createQuery("FROM " + Produto.class.getName()).getResultList();
+    public List<Entrega> findAll() {
+              return entityManager.createQuery("FROM " + Entrega.class.getName()).getResultList();
     }
 
-    public void persist(Produto produto) {
+    public void persist(Entrega entrega) {
               try {
                        entityManager.getTransaction().begin();
-                       entityManager.persist(produto);
+                       entityManager.persist(entrega);
                        entityManager.getTransaction().commit();
               } catch (Exception ex) {
                        ex.printStackTrace();
@@ -57,10 +58,10 @@ public class ProdutoJpaDao {
               }
     }
 
-    public void merge(Produto produto) {
+    public void merge(Entrega entrega) {
               try {
                        entityManager.getTransaction().begin();
-                       entityManager.merge(produto);
+                       entityManager.merge(entrega);
                        entityManager.getTransaction().commit();
               } catch (Exception ex) {
                        ex.printStackTrace();
@@ -68,11 +69,11 @@ public class ProdutoJpaDao {
               }
     }
 
-    public void remove(Produto produto) {
+    public void remove(Entrega entrega) {
               try {
                        entityManager.getTransaction().begin();
-                       produto = entityManager.find(Produto.class, produto.getId());
-                       entityManager.remove(produto);
+                       entrega = entityManager.find(Entrega.class, entrega.getId());
+                       entityManager.remove(entrega);
                        entityManager.getTransaction().commit();
               } catch (Exception ex) {
                        ex.printStackTrace();
@@ -82,12 +83,11 @@ public class ProdutoJpaDao {
 
     public void removeById(final int id) {
               try {
-            	  Produto produto = getById(id);
-                       remove(produto);
+            	  Entrega entrega = getById(id);
+                       remove(entrega);
               } catch (Exception ex) {
                        ex.printStackTrace();
               }
     }
-
 
 }

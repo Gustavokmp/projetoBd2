@@ -1,19 +1,20 @@
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 
+@SpringBootApplication
 
-public class Main {
+public class Main extends SpringBootServletInitializer {
 
-   public static void main(String[] args) {
-	   SessionFactory factory = new Configuration().configure().buildSessionFactory();
-		
-		Session session = factory.openSession();
+    public static void main(final String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
 
-		session.close();
-
-		System.out.println("Finalizado");
-}
+    @Override
+    protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
+        return application.sources(Main.class);
+    }
 }

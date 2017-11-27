@@ -1,4 +1,4 @@
-package jpa.dao;
+package service;
 
 import java.util.List;
 
