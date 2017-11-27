@@ -49,9 +49,10 @@ public class DestinatarioDAO extends DAO{
 	
 	public Destinatario delete(long id) {
 		this.begin();
-		this.getEntityManager().remove(id);
+		Destinatario d = this.findOne(id);
+		this.getEntityManager().remove(d);
 		this.commit();
-		return null;
+		return d;
 	}
 
 }

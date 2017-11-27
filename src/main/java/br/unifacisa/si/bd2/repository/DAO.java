@@ -12,7 +12,7 @@ public abstract class DAO {
 	private EntityManager entityManager;
 	
 	public DAO() {
-		this.entityManagerFactory = Persistence.createEntityManagerFactory("web");
+		this.entityManagerFactory = Persistence.createEntityManagerFactory("DAO");
 		this.entityManager = entityManagerFactory.createEntityManager();
 	}
 

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import br.unifacisa.si.bd2.model.Entregador;
 import br.unifacisa.si.bd2.repository.EntregadorDAO;
 
@@ -28,6 +29,11 @@ public class EntregadorService {
 	public List<Entregador> findAll(){
 		List<Entregador> entregadores = this.entregadorDao.findAll();
 		return entregadores;
+	}
+	
+	public Entregador remove(long id) {
+		Entregador e = this.entregadorDao.delete(id);;
+		return e;
 	}
 
 }

@@ -47,10 +47,12 @@ public class ProdutoDAO extends DAO {
 
 	}
 
-	public void delete(long id) {
+	public Produto delete(long id) {
 		this.begin();
+		Produto p = findOne(id);
 		this.getEntityManager().remove(id);
 		this.commit();
+		return p;
 	}
 
 }

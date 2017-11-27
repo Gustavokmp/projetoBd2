@@ -49,10 +49,12 @@ public class EmpresaDAO extends DAO{
 		
 	}
 	
-	public void delete(long id) {
+	public Empresa delete(long id) {
 		this.begin();
-		this.getEntityManager().remove(id);
+		Empresa e = this.findOne(id);
+		this.getEntityManager().remove(e);
 		this.commit();
+		return e;
 	}
 
 }

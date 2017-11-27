@@ -27,7 +27,7 @@ public class DestinatarioController {
 	
 	@PostMapping("/destinatario")
 	public ResponseEntity<String> createDestinatario(@Valid @RequestBody Destinatario destinatario){
-		this.destinatarioService.save(destinatario);;
+		this.destinatarioService.save(destinatario);
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}
 	

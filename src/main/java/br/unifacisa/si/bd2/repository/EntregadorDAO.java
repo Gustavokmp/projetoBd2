@@ -49,10 +49,12 @@ public class EntregadorDAO extends DAO{
 		
 	}
 	
-	public void delete(long id) {
+	public Entregador delete(long id) {
 		this.begin();
+		Entregador e = findOne(id);
 		this.getEntityManager().remove(id);
 		this.commit();
+		return e;
 	}
 
 }

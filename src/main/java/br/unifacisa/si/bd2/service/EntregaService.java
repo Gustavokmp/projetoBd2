@@ -29,5 +29,10 @@ public class EntregaService {
 		List<Entrega> entregas = this.entregaDao.findAll();
 		return entregas;
 	}
+	
+	public Entrega remove(long id) {
+		Entrega e = this.entregaDao.delete(id);;
+		return e;
+	}
 
 }

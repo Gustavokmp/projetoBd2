@@ -4,17 +4,8 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
         version="2.0">
 
-	<persistence-unit name="web">
+	<persistence-unit name="DAO">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
-	
-		
-	<class>br.unifacisa.si.bd2.model.Destinatario</class>
-	<class>br.unifacisa.si.bd2.model.Empresa</class>
-	<class>br.unifacisa.si.bd2.model.Endereco</class>
-	<class>br.unifacisa.si.bd2.model.Entrega</class>
-	<class>br.unifacisa.si.bd2.model.Entregador</class>
-	<class>br.unifacisa.si.bd2.model.Produto</class>
-	
 		<properties>
 			<!-- Propriedades de conexão com o Banco de Dados -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

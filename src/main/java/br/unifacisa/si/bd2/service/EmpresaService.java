@@ -29,5 +29,10 @@ public class EmpresaService {
 		List<Empresa> empresas = this.empresaDao.findAll();
 		return empresas;
 	}
+	
+	public Empresa remove(long id) {
+		Empresa e = this.empresaDao.delete(id);;
+		return e;
+	}
 
 }
